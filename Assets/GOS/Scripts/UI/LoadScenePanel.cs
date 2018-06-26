@@ -9,6 +9,7 @@ public class LoadScenePanel : MonoBehaviour
     public Text  mText;
     public Image mLoadbar;
     public Image mAddaptMask;
+    public Transform mActor;
 
     // Use this for initialization
     //void Start()
@@ -36,5 +37,6 @@ public class LoadScenePanel : MonoBehaviour
         }
 
         mAddaptMask.gameObject.SetActive(true);
+        mActor.gameObject.SetActive(true);
     }
 }
