@@ -1,5 +1,7 @@
 ﻿using GameFramework;
 using GameFramework.Procedure;
+using UnityGameFramework.Runtime;
+
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
 namespace GameFrameworkGOS
@@ -10,10 +12,18 @@ namespace GameFrameworkGOS
         {
             base.OnEnter(procedureOwner);
 
-            string welcomeMessage = string.Format("Hello! This is an empty project based on Game Framework {0}.", GameFrameworkEntry.Version);
-            Log.Info(welcomeMessage);
-            Log.Warning(welcomeMessage);
-            Log.Error(welcomeMessage);
+
+            SceneComponent scene = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
+            // 切换场景
+            scene.LoadScene("LoadScene", this);
+            // 切换流程
+            //ChangeState<ProcedureLoad>(procedureOwner);
+
+            // 加载框架UI组件
+            UIComponent UI = UnityGameFramework.Runtime.GameEntry.GetComponent<UIComponent>();
+
+            // 加载UI
+            UI.OpenUIForm("Assets/Prefabs/UI/AdaptMask.prefab", "DefaultGroup");
         }
     }
 }

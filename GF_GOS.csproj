@@ -128,6 +128,7 @@
     <Compile Include="Assets\GOS\Scripts\Bullets\BulletBold.cs" />
     <Compile Include="Assets\GOS\Scripts\Bullets\IBullet.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\CameraControl.cs" />
+    <Compile Include="Assets\GOS\Scripts\Common\CoroutineManager.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\DataManager.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\EventManager.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\Scenes\LevelChoose.cs" />
@@ -157,7 +158,7 @@
     <Compile Include="Assets\GOS\Scripts\Towers\DefendersSpawner.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\Tower.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\ButtonHandler.cs" />
-    <Compile Include="Assets\GOS\Scripts\UI\LoadPanel.cs" />
+    <Compile Include="Assets\GOS\Scripts\UI\LoadScenePanel.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\ShowInfo.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\UiManager.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\WavesTimer.cs" />
