@@ -137,6 +137,7 @@
     <Compile Include="Assets\GOS\Scripts\Common\Units\Price.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\Units\SpriteSorting.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\Units\UnitInfo.cs" />
+    <Compile Include="Assets\GOS\Scripts\Configs\ConfigActor.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\AloneSpeedUp.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\AoeHealer.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\CloudOnDamage.cs" />
@@ -511,6 +512,7 @@
     <Compile Include="Assets\Spine\spine-unity\SpineAttributes.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\GOS\Configs\Hero.txt" />
     <None Include="Assets\GameFramework\GF_Example\Demo5\Hero.txt" />
     <None Include="Assets\GameFramework\Libraries\GameFramework.xml" />
     <None Include="Assets\GameFramework\Libraries\link.xml" />

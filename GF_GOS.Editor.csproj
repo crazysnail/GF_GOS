@@ -255,6 +255,7 @@
     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilityInspector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\GOS\Configs\Hero.txt" />
     <None Include="Assets\GameFramework\GF_Example\Demo5\Hero.txt" />
     <None Include="Assets\GameFramework\Libraries\GameFramework.xml" />
     <None Include="Assets\GameFramework\Libraries\link.xml" />
