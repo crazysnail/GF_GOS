@@ -10,7 +10,7 @@ public class LoadUICanvas : UIFormLogic
     public Text mText;
     public Image mLoadBar;
     public Image mAddaptMask;
-    public Transform mActor;
+    //public Transform mActor;
 
     private bool mInit = false;
     // Use this for initialization
@@ -32,7 +32,7 @@ public class LoadUICanvas : UIFormLogic
             OnUpdateText(i, 120);
             yield return new WaitForEndOfFrame();
         }
-        OnEnableActor(false);
+        //OnEnableActor(false);
         OnEnableMask(true);
     }
 
@@ -49,7 +49,7 @@ public class LoadUICanvas : UIFormLogic
 
     public void OnEnableActor(bool enable)
     {
-        mActor.gameObject.SetActive(enable);
+       // mActor.gameObject.SetActive(enable);
     }
 
 }

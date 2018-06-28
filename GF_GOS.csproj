@@ -137,15 +137,13 @@
     <Compile Include="Assets\GOS\Scripts\Common\Units\Price.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\Units\SpriteSorting.cs" />
     <Compile Include="Assets\GOS\Scripts\Common\Units\UnitInfo.cs" />
-    <Compile Include="Assets\GOS\Scripts\Configs\ConfigActor.cs" />
+    <Compile Include="Assets\GOS\Scripts\DataTable\ConfigActor.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\AloneSpeedUp.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\AoeHealer.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\CloudOnDamage.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\Clouded.cs" />
     <Compile Include="Assets\GOS\Scripts\Enemies\Healer.cs" />
-    <Compile Include="Assets\GOS\Scripts\GF_Procedure\ProcedureLaunch.cs" />
-    <Compile Include="Assets\GOS\Scripts\GF_Procedure\ProcedureLoad.cs" />
-    <Compile Include="Assets\GOS\Scripts\GF_Procedure\ProcedureMainMenu.cs" />
+    <Compile Include="Assets\GOS\Scripts\Entity\FootManLogic.cs" />
     <Compile Include="Assets\GOS\Scripts\Level\LevelManager.cs" />
     <Compile Include="Assets\GOS\Scripts\Level\WavesInfo.cs" />
     <Compile Include="Assets\GOS\Scripts\NetWork\HttpClient.cs" />
@@ -153,6 +151,9 @@
     <Compile Include="Assets\GOS\Scripts\Pathway\Pathway.cs" />
     <Compile Include="Assets\GOS\Scripts\Pathway\SpawnPoint.cs" />
     <Compile Include="Assets\GOS\Scripts\Pathway\Waypoint.cs" />
+    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLaunch.cs" />
+    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLoad.cs" />
+    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureMainMenu.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingIcon.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingPlace.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingTree.cs" />
