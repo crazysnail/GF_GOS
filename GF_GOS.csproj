@@ -101,6 +101,9 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>Assets/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets/GameFramework/Libraries/protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
@@ -146,7 +149,6 @@
     <Compile Include="Assets\GOS\Scripts\Entity\FootManLogic.cs" />
     <Compile Include="Assets\GOS\Scripts\Level\LevelManager.cs" />
     <Compile Include="Assets\GOS\Scripts\Level\WavesInfo.cs" />
-    <Compile Include="Assets\GOS\Scripts\NetWork\HttpClient.cs" />
     <Compile Include="Assets\GOS\Scripts\Pathway\CapturePoint.cs" />
     <Compile Include="Assets\GOS\Scripts\Pathway\Pathway.cs" />
     <Compile Include="Assets\GOS\Scripts\Pathway\SpawnPoint.cs" />
@@ -180,6 +182,20 @@
     <Compile Include="Assets\GameFramework\GF_Example\Demo4\Demo4_UIMenu.cs" />
     <Compile Include="Assets\GameFramework\GF_Example\Demo5\DRHero.cs" />
     <Compile Include="Assets\GameFramework\GF_Example\Demo5\Demo5_ProcedureLaunch.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Demo8_ProcedureLaunch.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Demo8_SocketServer.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\CSPacketBase.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\CSPacketHeader.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\NetworkChannelHelper.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\Packet\CSHello.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\Packet\SCHello.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\PacketBase.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\PacketHandler\Demo8_HelloPacketHandler.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\PacketHandlerBase.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\PacketHeaderBase.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\PacketType.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\SCPacketBase.cs" />
+    <Compile Include="Assets\GameFramework\GF_Example\Demo8\Network\SCPacketHeader.cs" />
     <Compile Include="Assets\GameFramework\Scripts\Runtime\Base\AvoidJIT.cs" />
     <Compile Include="Assets\GameFramework\Scripts\Runtime\Base\BaseComponent.cs" />
     <Compile Include="Assets\GameFramework\Scripts\Runtime\Base\GameEntry.cs" />

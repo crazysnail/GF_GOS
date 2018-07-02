@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;  
+using System.Collections;
 using System.Collections.Generic;
 using GameFramework;
 using GameFramework.Procedure;
@@ -7,6 +8,8 @@ using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 using GameFramework.Event;
 using GameFramework.DataTable;
+using UnityEngine.Networking;
+
 
 
 namespace GameFrameworkGOS
@@ -27,8 +30,41 @@ namespace GameFrameworkGOS
             ConfigLoadTest();
             // 加载实体
             EntityLoadTest();
+            // web消息
+            WebRequestTest();
 
         }
+        /// <summary>
+        /// //////
+        /// </summary>
+        private void WebRequestTest()
+        {
+
+            EventComponent Event = UnityGameFramework.Runtime.GameEntry.GetComponent<EventComponent>();
+            Event.Subscribe(WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
+            Event.Subscribe(WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
+			//
+            // 开了代理会失败！
+            // 获取框架网络组件
+            WebRequestComponent WebRequest = UnityGameFramework.Runtime.GameEntry.GetComponent<WebRequestComponent>();
+            string url = "http://www.gameframework.cn/starforce/version.txt";
+           
+            WebRequest.AddWebRequest(url, this);
+        }
+
+
+        private void OnWebRequestSuccess(object sender, GameEventArgs e)
+        {
+            WebRequestSuccessEventArgs ne = (WebRequestSuccessEventArgs)e;
+            // 获取回应的数据
+            string responseJson = GameFramework.Utility.Converter.GetString(ne.GetWebResponseBytes());
+            Log.Warning("OnWebRequestSuccess：" + responseJson);
+        }
+        private void OnWebRequestFailure(object sender, GameEventArgs e)
+        {
+            Log.Error("OnWebRequestFailure :" + e.ToString());
+        }
+
         /// <summary>
         /// //////
         /// </summary>
