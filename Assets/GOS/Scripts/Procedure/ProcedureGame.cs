@@ -6,17 +6,12 @@ using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedure
 
 namespace GameFrameworkGOS
 {
-    public class ProcedureMainMenu : ProcedureBase
+    public class ProcedureGame : ProcedureBase
     {
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
 
-            SceneComponent scene = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
-            // 切换场景
-            scene.LoadScene("MainMenu", this);
-            // 切换流程
-            ChangeState<ProcedureMainMenu>(procedureOwner);
         }
     }
 }

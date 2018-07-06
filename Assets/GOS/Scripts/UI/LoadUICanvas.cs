@@ -1,9 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using UnityEngine.UI;
+using GameFramework.Event;
+//using GameFramework.DataTable;
 
 public class LoadUICanvas : UIFormLogic
 {
@@ -12,7 +13,41 @@ public class LoadUICanvas : UIFormLogic
     public Image mAddaptMask;
     //public Transform mActor;
 
-    private bool mInit = false;
+    private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
+    private const string mConfigName = "Assets/GOS/Configs/Hero.txt";
+    private const string mActorName = "Assets/GOS/Prefabs/Spine/FootMan.prefab";
+
+
+    // 加载框架Event组件
+    EventComponent Event = UnityGameFramework.Runtime.GameEntry.GetComponent<EventComponent>();
+
+    private bool mAnimation = false;
+    private void OnEnable()
+    {
+        OnEnableMask(false);
+
+        Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
+        Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
+
+        Event.Subscribe(WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
+        Event.Subscribe(WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
+
+        Event.Subscribe(LoadDataTableSuccessEventArgs.EventId, OnLoadDataTableSuccess);
+        Event.Subscribe(LoadDataTableFailureEventArgs.EventId, OnLoadDataTableFailure);
+    }
+
+    private void OnDisable()
+    {
+        //取消订阅成功事件
+        Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
+        Event.Unsubscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
+
+        Event.Unsubscribe(WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
+        Event.Unsubscribe(WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
+
+        Event.Unsubscribe(LoadDataTableSuccessEventArgs.EventId, OnLoadDataTableSuccess);
+        Event.Unsubscribe(LoadDataTableFailureEventArgs.EventId, OnLoadDataTableFailure);
+    }
     // Use this for initialization
     void Start()
     {
@@ -34,6 +69,8 @@ public class LoadUICanvas : UIFormLogic
         }
         //OnEnableActor(false);
         OnEnableMask(true);
+
+        //EventManager.TriggerEvent("LoadSuccess", gameObject, null);
     }
 
     public void OnUpdateText(int step, int all)
@@ -45,11 +82,154 @@ public class LoadUICanvas : UIFormLogic
     public void OnEnableMask(bool enable)
     {
         mAddaptMask.gameObject.SetActive(enable);
+
     }
 
     public void OnEnableActor(bool enable)
     {
        // mActor.gameObject.SetActive(enable);
+    }
+
+    public void OnEnterClick()
+    {
+        SceneComponent scene = GameEntry.GetComponent<SceneComponent>();
+        scene.LoadScene("GameScene", this);
+    }
+
+    public void OnConfigClick()
+    {
+        // 获取框架数据表组件
+        DataTableComponent DataTable = GameEntry.GetComponent<DataTableComponent>();
+        // 加载配置表
+        DataTable.LoadDataTable<ConfigHero>("Hero", mConfigName, this);
+        DataTable.LoadDataTable<ConfigHero>("Hero", "ddddd", this);
+    }
+
+    public void OnAnimationClick()
+    {
+        EntityComponent Entity = GameEntry.GetComponent<EntityComponent>();
+
+        if (!mAnimation){
+            // 加载Entity
+            Entity.ShowEntity<FootManLogic>(1, mActorName, "EntityGroup", this);
+            Entity.ShowEntity<FootManLogic>(2, mActorName, "EntityGroup", this);
+            mAnimation = true;
+        }
+        else{
+            Entity.HideEntity(1);
+            Entity.HideEntity(2);
+            mAnimation = false;
+        }
+
+    }
+
+    public void OnNetClick()
+    {
+        
+        // 开了代理会失败！
+        WebRequestComponent WebRequest = UnityGameFramework.Runtime.GameEntry.GetComponent<WebRequestComponent>();
+
+        //get
+        //string url = "http://www.gameframework.cn/starforce/version.txt";
+        //string url = "http://localhost:9091/main.go";           
+        string url = "http://localhost:9091/";
+        //WebRequest.AddWebRequest(url, this);
+
+        //
+        //post
+        //
+        string str = "123456789";
+        byte[] content = System.Text.Encoding.Default.GetBytes(str);
+        WebRequest.AddWebRequest(url, content, this);
+
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender">Sender.</param>
+    /// <param name="e">E.</param>
+    private void OnShowEntitySuccess(object sender, GameEventArgs e)
+    {
+        ShowEntitySuccessEventArgs ne = (ShowEntitySuccessEventArgs)e;
+        // 判断userData是否为自己
+        if (ne.UserData != this)
+        {
+            return;
+        }
+        if (ne.Entity.Id == 1)
+        {
+            ne.Entity.gameObject.transform.SetLocalPositionX(-3);
+        }
+        else if (ne.Entity.Id == 2)
+        {
+            ne.Entity.gameObject.transform.SetLocalPositionX(3);
+        }
+        else
+        {
+            Log.Error("OnShowEntitySuccess Entity id is Unkown ! " + ne.Entity.Id);
+        }
+    }
+    private void OnShowEntityFailure(object sender, GameEventArgs e)
+    {
+        Log.Error("OnShowEntityFailure :" + e.ToString());
+    }
+
+    /// <summary>
+    /// //////
+    /// </summary>
+    private void OnWebRequestSuccess(object sender, GameEventArgs e)
+    {
+        WebRequestSuccessEventArgs ne = (WebRequestSuccessEventArgs)e;
+        // 获取回应的数据
+        string responseJson = GameFramework.Utility.Converter.GetString(ne.GetWebResponseBytes());
+        Log.Warning("OnWebRequestSuccess：" + responseJson);
+    }
+    private void OnWebRequestFailure(object sender, GameEventArgs e)
+    {
+        Log.Error("OnWebRequestFailure :" + e.ToString());
+    }
+
+
+    /// <summary>
+    /// /////////////////
+    /// </summary>
+
+    private void OnLoadDataTableSuccess(object sender, GameEventArgs e)
+    {
+        // 获取框架数据表组件
+        DataTableComponent DataTable = UnityGameFramework.Runtime.GameEntry.GetComponent<DataTableComponent>();
+        // 获得数据表
+        GameFramework.DataTable.IDataTable<ConfigHero> table = DataTable.GetDataTable<ConfigHero>();
+
+        // 获得所有行
+        ConfigHero[] rows = table.GetAllDataRows();
+        Log.Debug("ConfigHeros:" + rows.Length);
+
+        if (table != null)
+        {
+            // 根据行号获得某一行
+            ConfigHero row = table.GetDataRow(1); // 或直接使用 dtScene[1]
+                                                  // 此行存在，可以获取内容了
+            string name = table.Name;
+            int hp = row.Hp;
+            Log.Debug("name:" + name + ", hp:" + hp);
+        }
+        else
+        {
+            // 此行不存在
+        }
+        // 获得满足条件的所有行
+        ConfigHero[] drScenesWithCondition = table.GetAllDataRows(x => x.Id > 0);
+
+        // 获得满足条件的第一行
+        ConfigHero drSceneWithCondition = table.GetDataRow(x => x.Name == "mutou");
+
+    }
+    private void OnLoadDataTableFailure(object sender, GameEventArgs e)
+    {
+        Log.Error("OnLoadDataTableFailure :" + e.ToString());
     }
 
 }

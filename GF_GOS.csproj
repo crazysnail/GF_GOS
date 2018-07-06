@@ -155,7 +155,7 @@
     <Compile Include="Assets\GOS\Scripts\Pathway\Waypoint.cs" />
     <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLaunch.cs" />
     <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLoad.cs" />
-    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureMainMenu.cs" />
+    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureGame.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingIcon.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingPlace.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingTree.cs" />
