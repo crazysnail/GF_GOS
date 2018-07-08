@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio for Mac
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF_GOS", "GF_GOS.csproj", "{CA22AF16-4E37-3073-1F67-8697C812C5E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF_GOS.Editor", "GF_GOS.Editor.csproj", "{5EB2DF34-8984-E488-9665-6959CB787618}"

@@ -5,6 +5,8 @@ using UnityGameFramework.Runtime;
 using UnityEngine.UI;
 using GameFramework.Event;
 //using GameFramework.DataTable;
+using GameFramework.WebRequest;
+using LitJson;
 
 public class LoadUICanvas : UIFormLogic
 {
@@ -29,8 +31,8 @@ public class LoadUICanvas : UIFormLogic
         Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
         Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
 
-        Event.Subscribe(WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
-        Event.Subscribe(WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
+        Event.Subscribe(UnityGameFramework.Runtime.WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
+        Event.Subscribe(UnityGameFramework.Runtime.WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
 
         Event.Subscribe(LoadDataTableSuccessEventArgs.EventId, OnLoadDataTableSuccess);
         Event.Subscribe(LoadDataTableFailureEventArgs.EventId, OnLoadDataTableFailure);
@@ -42,8 +44,8 @@ public class LoadUICanvas : UIFormLogic
         Event.Unsubscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
         Event.Unsubscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
 
-        Event.Unsubscribe(WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
-        Event.Unsubscribe(WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
+        Event.Unsubscribe(UnityGameFramework.Runtime.WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
+        Event.Unsubscribe(UnityGameFramework.Runtime.WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
 
         Event.Unsubscribe(LoadDataTableSuccessEventArgs.EventId, OnLoadDataTableSuccess);
         Event.Unsubscribe(LoadDataTableFailureEventArgs.EventId, OnLoadDataTableFailure);
@@ -127,21 +129,36 @@ public class LoadUICanvas : UIFormLogic
     {
         
         // 开了代理会失败！
-        WebRequestComponent WebRequest = UnityGameFramework.Runtime.GameEntry.GetComponent<WebRequestComponent>();
+        WebRequestComponent WebRequest = GameEntry.GetComponent<WebRequestComponent>();
 
         //get
         //string url = "http://www.gameframework.cn/starforce/version.txt";
         //string url = "http://localhost:9091/main.go";           
-        string url = "http://localhost:9091/";
+        //string url = "http://localhost:9091/";
         //WebRequest.AddWebRequest(url, this);
 
-        //
-        //post
-        //
-        string str = "123456789";
-        byte[] content = System.Text.Encoding.Default.GetBytes(str);
-        WebRequest.AddWebRequest(url, content, this);
+        string url = "http://localhost:9091/";
+        //string str = "{\"UserName\":{\"kitty\"}}";
+        //byte[] content = System.Text.Encoding.ASCII.GetBytes(str);
+        //WebRequest.AddWebRequest(url, content, this);
 
+
+        //var request = new UnityEngine.Networking.UnityWebRequest(url, "POST");
+        JsonData data = new JsonData();
+        data["UserName"] = "seed";
+        byte[] postBytes = System.Text.Encoding.UTF8.GetBytes(data.ToJson());
+
+        //request.uploadHandler = (UnityEngine.Networking.UploadHandler)new UnityEngine.Networking.UploadHandlerRaw(postBytes);
+        ////request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        //request.SetRequestHeader("Content-Type", "application/json");
+        //request.Send();
+
+        WWWForm Form = new WWWForm();
+        Form.AddField("Content-Type", "application/json");
+        Form.AddBinaryData("body", postBytes);
+        WebRequest.AddWebRequest(url, Form);
+
+       
     }
 
 
@@ -181,10 +198,24 @@ public class LoadUICanvas : UIFormLogic
     /// </summary>
     private void OnWebRequestSuccess(object sender, GameEventArgs e)
     {
-        WebRequestSuccessEventArgs ne = (WebRequestSuccessEventArgs)e;
+        UnityGameFramework.Runtime.WebRequestSuccessEventArgs ne = (UnityGameFramework.Runtime.WebRequestSuccessEventArgs)e;
         // 获取回应的数据
         string responseJson = GameFramework.Utility.Converter.GetString(ne.GetWebResponseBytes());
         Log.Warning("OnWebRequestSuccess：" + responseJson);
+
+        ////post
+        //if (responseJson != "404 Not found")
+        //{
+        //    WebRequestComponent WebRequest = UnityGameFramework.Runtime.GameEntry.GetComponent<WebRequestComponent>();
+        //    string url = "http://localhost:9091/";
+        //    responseJson = "{\"UserName\": \"kitty\"}";
+        //    byte[] content = System.Text.Encoding.Default.GetBytes(responseJson);
+        //    WebRequest.AddWebRequest(url, content, this);
+        //}
+        //else
+        //{
+        //    //
+        //}
     }
     private void OnWebRequestFailure(object sender, GameEventArgs e)
     {

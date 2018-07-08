@@ -327,7 +327,7 @@ namespace UnityGameFramework.Runtime
         /// <param name="priority">Web 请求任务的优先级。</param>
         /// <param name="userData">用户自定义数据。</param>
         /// <returns>新增 Web 请求任务的序列编号。</returns>
-        private int AddWebRequest(string webRequestUri, byte[] postData, WWWForm wwwForm, int priority, object userData)
+        public int AddWebRequest(string webRequestUri, byte[] postData, WWWForm wwwForm, int priority, object userData)
         {
             return m_WebRequestManager.AddWebRequest(webRequestUri, postData, priority, new WWWFormInfo(wwwForm, userData));
         }
