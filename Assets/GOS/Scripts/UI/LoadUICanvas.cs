@@ -143,22 +143,11 @@ public class LoadUICanvas : UIFormLogic
         //WebRequest.AddWebRequest(url, content, this);
 
 
-        //var request = new UnityEngine.Networking.UnityWebRequest(url, "POST");
         JsonData data = new JsonData();
         data["UserName"] = "seed";
         byte[] postBytes = System.Text.Encoding.UTF8.GetBytes(data.ToJson());
-
-        //request.uploadHandler = (UnityEngine.Networking.UploadHandler)new UnityEngine.Networking.UploadHandlerRaw(postBytes);
-        ////request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-        //request.SetRequestHeader("Content-Type", "application/json");
-        //request.Send();
-
         WWWForm Form = new WWWForm();
-        Form.AddField("Content-Type", "application/json");
-        Form.AddBinaryData("body", postBytes);
-        WebRequest.AddWebRequest(url, Form);
-
-       
+        WebRequest.AddWebRequest(url, postBytes,Form,1,this);
     }
 
 

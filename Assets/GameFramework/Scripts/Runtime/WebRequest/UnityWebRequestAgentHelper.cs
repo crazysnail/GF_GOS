@@ -102,7 +102,27 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            m_UnityWebRequest = UnityWebRequest.Post(webRequestUri, Utility.Converter.GetString(postData));
+            //先扩展支持json报文格式
+            if( userData != null ){
+                var formInfo = userData as WWWFormInfo;
+                if (formInfo != null && formInfo.WWWForm != null){       
+                    if (m_UnityWebRequest == null){
+                        m_UnityWebRequest = new UnityWebRequest();
+                    }
+                    m_UnityWebRequest.url = webRequestUri;
+                    m_UnityWebRequest.method = "POST";
+                    m_UnityWebRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(postData); 
+                    m_UnityWebRequest.SetRequestHeader("Content-Type", "application / json");
+                    m_UnityWebRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+                }
+                else{//按post默认处理
+                    m_UnityWebRequest = UnityWebRequest.Post(webRequestUri, Utility.Converter.GetString(postData));
+                }
+            }
+            else{
+                m_UnityWebRequest = UnityWebRequest.Post(webRequestUri, Utility.Converter.GetString(postData));
+            }
+
 #if UNITY_2017_2_OR_NEWER
             m_UnityWebRequest.SendWebRequest();
 #else

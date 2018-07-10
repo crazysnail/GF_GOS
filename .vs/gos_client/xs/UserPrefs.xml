@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{3290A1F8-9A4A-4ED9-AEF9-9A0A8F9B901C}|">
+  <MonoDevelop.Ide.ItemProperties.gos__client PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GOS/Scripts/UI/LoadUICanvas.cs">
+    <Files>
+      <File FileName="Assets/GOS/Scripts/Entity/FootManLogic.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" Line="27" Column="1" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLoad.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/UI/LoadUICanvas.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
