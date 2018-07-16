@@ -20,9 +20,16 @@ namespace GameFrameworkGOS
         // 加载框架Event组件
         EventComponent Event = UnityGameFramework.Runtime.GameEntry.GetComponent<EventComponent>();
 
+        ProcedureOwner mProcedureOwner = null;
+
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
+
+            mProcedureOwner = procedureOwner;
+            // 切换场景
+            SceneComponent scene = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
+            scene.LoadScene("LoadScene", this);
 
             // 订阅成功事件
             Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
@@ -45,6 +52,11 @@ namespace GameFrameworkGOS
             Event.Unsubscribe(OpenUIFormFailureEventArgs.EventId, OnOpenUIFormFailure);
 
             //EventManager.StopListening("LoadSuccess", OnLoadSuccess);
+        }
+
+        public void OnChange( )
+        {
+            ChangeState<ProcedureLogin>(mProcedureOwner);
         }
 
      

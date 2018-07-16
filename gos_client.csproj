@@ -530,6 +530,8 @@
     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\SkeletonUtilityBone.cs" />
     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\SkeletonUtilityConstraint.cs" />
     <Compile Include="Assets\Spine\spine-unity\SpineAttributes.cs" />
+    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLogin.cs" />
+    <Compile Include="Assets\GOS\Scripts\UI\LoginUICanvas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GOS\Configs\Hero.txt" />

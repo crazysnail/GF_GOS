@@ -13,7 +13,7 @@ public class LoadUICanvas : UIFormLogic
     public Text mText;
     public Image mLoadBar;
     public Image mAddaptMask;
-    //public Transform mActor;
+    public Transform mActor;
 
     private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
     private const string mConfigName = "Assets/GOS/Configs/Hero.txt";
@@ -69,10 +69,8 @@ public class LoadUICanvas : UIFormLogic
             OnUpdateText(i, 120);
             yield return new WaitForEndOfFrame();
         }
-        //OnEnableActor(false);
-        OnEnableMask(true);
 
-        //EventManager.TriggerEvent("LoadSuccess", gameObject, null);
+        OnEnableMask(true);
     }
 
     public void OnUpdateText(int step, int all)
@@ -83,19 +81,26 @@ public class LoadUICanvas : UIFormLogic
 
     public void OnEnableMask(bool enable)
     {
+        mLoadBar.fillAmount = 0;
         mAddaptMask.gameObject.SetActive(enable);
-
     }
 
     public void OnEnableActor(bool enable)
     {
-       // mActor.gameObject.SetActive(enable);
+        mActor.gameObject.SetActive(enable);
     }
 
     public void OnEnterClick()
     {
-        SceneComponent scene = GameEntry.GetComponent<SceneComponent>();
-        scene.LoadScene("GameScene", this);
+
+        ProcedureComponent procedureComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<ProcedureComponent>();
+        if( procedureComponent != null ){
+            GameFrameworkGOS.ProcedureLoad p = procedureComponent.CurrentProcedure as GameFrameworkGOS.ProcedureLoad ;
+            if( p != null){
+                p.OnChange();
+            }
+        }
+       
     }
 
     public void OnConfigClick()
@@ -137,19 +142,33 @@ public class LoadUICanvas : UIFormLogic
         //string url = "http://localhost:9091/";
         //WebRequest.AddWebRequest(url, this);
 
-        string url = "http://localhost:9091/";
+        string url = "http://localhost:18810/";
         //string str = "{\"UserName\":{\"kitty\"}}";
         //byte[] content = System.Text.Encoding.ASCII.GetBytes(str);
         //WebRequest.AddWebRequest(url, content, this);
 
-
-        JsonData data = new JsonData();
-        data["UserName"] = "seed";
-        byte[] postBytes = System.Text.Encoding.UTF8.GetBytes(data.ToJson());
-        WWWForm Form = new WWWForm();
-        WebRequest.AddWebRequest(url, postBytes,Form,1,this);
+        for (int i = 0; i < 1000; i++)
+        {
+            JsonData data = new JsonData();
+            data["UserName"] = "seed"+i;
+            byte[] postBytes = System.Text.Encoding.UTF8.GetBytes(data.ToJson());
+            WWWForm Form = new WWWForm();
+            WebRequest.AddWebRequest(url, postBytes, Form, 1, this);
+        }
     }
 
+
+    public void OnNet2Click()
+    {
+        // 开了代理会失败！
+        WebRequestComponent WebRequest = GameEntry.GetComponent<WebRequestComponent>();
+        string url = "http://localhost:18810/";
+        JsonData data = new JsonData();
+        data["UserName"] = "seed9999999999999999999999";
+        byte[] postBytes = System.Text.Encoding.UTF8.GetBytes(data.ToJson());
+        WWWForm Form = new WWWForm();
+        WebRequest.AddWebRequest(url, postBytes, Form, 1, this);
+    }
 
     /// <summary>
     /// 

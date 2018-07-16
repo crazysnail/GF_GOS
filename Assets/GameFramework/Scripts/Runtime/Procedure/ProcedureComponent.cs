@@ -42,7 +42,7 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
-        /// 游戏框架组件初始化。
+        /// 游戏框架组件初始化。µ
         /// </summary>
         protected override void Awake()
         {

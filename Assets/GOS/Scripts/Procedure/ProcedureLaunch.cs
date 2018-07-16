@@ -14,13 +14,14 @@ namespace GameFrameworkGOS
         {
             base.OnEnter(procedureOwner);
 
-            SceneComponent scene = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
-
-            // 切换场景
-            scene.LoadScene("LoadScene", this);
 
             // 切换流程
             ChangeState<ProcedureLoad>(procedureOwner);
+        }
+
+        protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
+        {
+            base.OnLeave(procedureOwner,isShutdown);
         }
     }
 }
