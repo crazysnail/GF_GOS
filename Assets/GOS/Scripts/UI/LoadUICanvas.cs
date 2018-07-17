@@ -15,7 +15,8 @@ public class LoadUICanvas : UIFormLogic
     public Image mAddaptMask;
     //public Transform mActor;
 
-    private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
+   // private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
+    private const string mUIName = "Assets/GOS/Prefabs/UI/TestUICanvas.prefab";
     private const string mConfigName = "Assets/GOS/Configs/Hero.txt";
     private const string mActorName = "Assets/GOS/Prefabs/Spine/FootMan.prefab";
 

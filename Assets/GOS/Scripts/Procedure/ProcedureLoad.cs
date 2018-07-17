@@ -15,8 +15,8 @@ namespace GameFrameworkGOS
 {
     public class ProcedureLoad : ProcedureBase
     {
-        private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
-
+        //private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
+        private const string mUIName = "Assets/GOS/Prefabs/UI/TestUICanvas.prefab";
         // 加载框架Event组件
         EventComponent Event = UnityGameFramework.Runtime.GameEntry.GetComponent<EventComponent>();
 
@@ -76,7 +76,7 @@ namespace GameFrameworkGOS
                 if (UI != null){
                     UIForm form = UI.GetUIForm(mUIName);
                     if (form != null){
-                        LoadUICanvas panel = (LoadUICanvas)(form.Logic);
+                        TestUICanvas panel = (TestUICanvas)(form.Logic);
                         if (panel != null){
                             //panel.OnEnableMask(true);
                             //panel.OnEnableActor(true);
