@@ -70,7 +70,8 @@ public class LoadUICanvas : UIFormLogic
             yield return new WaitForEndOfFrame();
         }
 
-        OnEnableMask(true);
+        //OnEnableMask(true);
+        OnEnterGame();
     }
 
     public void OnUpdateText(int step, int all)
@@ -90,17 +91,17 @@ public class LoadUICanvas : UIFormLogic
         mActor.gameObject.SetActive(enable);
     }
 
-    public void OnEnterClick()
+    public void OnEnterGame()
     {
-
         ProcedureComponent procedureComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<ProcedureComponent>();
-        if( procedureComponent != null ){
-            GameFrameworkGOS.ProcedureLoad p = procedureComponent.CurrentProcedure as GameFrameworkGOS.ProcedureLoad ;
-            if( p != null){
+        if (procedureComponent != null)
+        {
+            GameFrameworkGOS.ProcedureLoad p = procedureComponent.CurrentProcedure as GameFrameworkGOS.ProcedureLoad;
+            if (p != null)
+            {
                 p.OnChange();
             }
         }
-       
     }
 
     public void OnConfigClick()

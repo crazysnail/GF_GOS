@@ -3,39 +3,48 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/GOS/Scripts/UI/LoadUICanvas.cs" Line="103" Column="1" />
-      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" Line="19" Column="54" />
-      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureGame.cs" Line="9" Column="31" />
+      <File FileName="Assets/GOS/Scripts/UI/LoadUICanvas.cs" Line="74" Column="23" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureGame.cs" Line="58" Column="19" />
       <File FileName="Assets/GameFramework/Scripts/Runtime/UI/OpenUIFormDependencyAssetEventArgs.cs" Line="1" Column="1" />
       <File FileName="Assets/GameFramework/Scripts/Runtime/UI/DefaultUIGroupHelper.cs" Line="1" Column="1" />
       <File FileName="Assets/GameFramework/Scripts/Runtime/UI/DefaultUIFormHelper.cs" Line="1" Column="1" />
       <File FileName="Assets/GameFramework/Scripts/Runtime/UI/OpenUIFormUpdateEventArgs.cs" Line="1" Column="1" />
       <File FileName="Assets/GOS/Scripts/Pathway/Pathway.cs" Line="1" Column="1" />
-      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLoad.cs" Line="16" Column="47" />
-      <File FileName="Assets/GOS/Scripts/UI/LoginUICanvas.cs" Line="31" Column="9" />
-      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLogin.cs" Line="27" Column="13" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLoad.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/UI/LoginUICanvas.cs" Line="76" Column="1" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLogin.cs" Line="28" Column="27" />
       <File FileName="Assets/GameFramework/GF_Example/Demo2/Demo2_ProcedureGame.cs" Line="8" Column="20" />
       <File FileName="Assets/GOS/Scripts/UI/ShowInfo.cs" Line="27" Column="54" />
       <File FileName="../GameFramework/GameFramework/Fsm/FsmState.cs" Line="130" Column="1" />
-      <File FileName="../GameFramework/GameFramework/Fsm/Fsm.cs" Line="222" Column="9" />
-      <File FileName="Assets/GameFramework/Scripts/Runtime/Procedure/ProcedureComponent.cs" Line="59" Column="29" />
+      <File FileName="../GameFramework/GameFramework/Fsm/Fsm.cs" Line="222" Column="1" />
+      <File FileName="Assets/GameFramework/Scripts/Runtime/Procedure/ProcedureComponent.cs" Line="51" Column="84" />
+      <File FileName="Assets/GOS/Scripts/UI/ButtonHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/UI/WavesTimer.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/UI/GameUICanvas.cs" Line="55" Column="39" />
+      <File FileName="Assets/GameFramework/Scripts/Runtime/UI/UIComponent.cs" Line="454" Column="1" />
+      <File FileName="../GameFramework/GameFramework/UI/UIManager.cs" Line="678" Column="14" />
+      <File FileName="../GameFramework/GameFramework/ObjectPool/ObjectPoolManager.ObjectPool.cs" Line="259" Column="1" />
+      <File FileName="../GameFramework/GameFramework/UI/UIManager.OpenUIFormInfo.cs" Line="23" Column="1" />
+      <File FileName="Assets/GameFramework/Scripts/Runtime/Resource/EditorResourceComponent.cs" Line="791" Column="1" />
+      <File FileName="../GameFramework/GameFramework/Utility/Random.cs" Line="65" Column="1" />
+      <File FileName="../GameFramework/GameFramework/Base/EventPool/EventPool.cs" Line="62" Column="1" />
+      <File FileName="../GameFramework/GameFramework/Event/EventManager.cs" Line="57" Column="1" />
+      <File FileName="../GameFramework/GameFramework/Base/GameFrameworkEntry.cs" Line="41" Column="1" />
+      <File FileName="Assets/GameFramework/Scripts/Runtime/Base/BaseComponent.cs" Line="259" Column="1" />
+      <File FileName="Assets/GameFramework/Scripts/Runtime/UI/UIForm.cs" Line="135" Column="30" />
+      <File FileName="Assets/GameFramework/Scripts/Runtime/Scene/SceneComponent.cs" Line="272" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" relfile="Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="123" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" relfile="Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="203" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" relfile="Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="172" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" relfile="Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="233" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureLogin.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureLogin.cs" line="63" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" relfile="Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="29" column="9" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureLogin.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureLogin.cs" line="18" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureLoad.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureLoad.cs" line="27" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" line="24" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" line="15" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" line="19" column="1" />
-      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" relfile="Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="101" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoginUICanvas.cs" relfile="Assets/GOS/Scripts/UI/LoginUICanvas.cs" line="71" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureGame.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureGame.cs" line="52" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureGame.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureGame.cs" line="69" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureGame.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureGame.cs" line="96" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/Procedure/ProcedureGame.cs" relfile="Assets/GOS/Scripts/Procedure/ProcedureGame.cs" line="62" column="1" />
+      <Breakpoint file="/Users/admin/work/GameFramework/GameFramework/ObjectPool/ObjectPoolManager.ObjectPool.cs" line="259" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

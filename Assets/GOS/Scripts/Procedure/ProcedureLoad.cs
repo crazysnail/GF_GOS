@@ -1,13 +1,9 @@
-﻿using System;  
-using System.Collections;
-using System.Collections.Generic;
-using GameFramework;
+﻿using GameFramework;
 using GameFramework.Procedure;
-using UnityEngine;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 using GameFramework.Event;
-
+using UnityEngine.SceneManagement;
 
 
 
@@ -16,28 +12,41 @@ namespace GameFrameworkGOS
     public class ProcedureLoad : ProcedureBase
     {
         private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
+        private const string mSceneName = "LoginScene";
 
         // 加载框架Event组件
         EventComponent Event = UnityGameFramework.Runtime.GameEntry.GetComponent<EventComponent>();
 
         ProcedureOwner mProcedureOwner = null;
+        private int mUIId = -1;
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
 
             mProcedureOwner = procedureOwner;
-            // 切换场景
-            SceneComponent scene = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
-            scene.LoadScene("LoadScene", this);
+
+            // 切换场景           
+            SceneComponent sceneComp = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
+            if (sceneComp.SceneIsLoaded(mSceneName))
+            {
+                Scene scene = SceneManager.GetSceneByName(SceneComponent.GetSceneName(mSceneName));
+                if (!scene.IsValid())
+                {
+                    Log.Error("Loaded scene '{0}' is invalid.", mSceneName);
+                    return;
+                }
+                SceneManager.SetActiveScene(scene);
+            }
+            else
+            {
+                sceneComp.LoadScene(mSceneName, this);
+            }
 
             // 订阅成功事件
             Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
             Event.Subscribe(OpenUIFormFailureEventArgs.EventId, OnOpenUIFormFailure);
 
-
-            //EventManager.StartListening("LoadSuccess", OnLoadSuccess);
-            // UI加载测速
             UILoadTest();
 
         }
@@ -46,12 +55,18 @@ namespace GameFrameworkGOS
         {
             base.OnLeave(procedureOwner,isShutdown);
 
+            UIComponent UI = UnityGameFramework.Runtime.GameEntry.GetComponent<UIComponent>();
+            UI.CloseUIForm(mUIId);
+
 
             //取消订阅成功事件
             Event.Unsubscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
             Event.Unsubscribe(OpenUIFormFailureEventArgs.EventId, OnOpenUIFormFailure);
 
-            //EventManager.StopListening("LoadSuccess", OnLoadSuccess);
+            //卸载场景
+           // SceneComponent sceneComp = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
+            //sceneComp.UnloadScene(mSceneName);
+
         }
 
         public void OnChange( )
@@ -66,13 +81,8 @@ namespace GameFrameworkGOS
         /// </summary>
         private void UILoadTest()
         {
-         
-            // 加载框架UI组件
             UIComponent UI = UnityGameFramework.Runtime.GameEntry.GetComponent<UIComponent>();
-            // 加载UI
-            UI.OpenUIForm(mUIName, "DefaultGroup", this);
-
-            //UI.OpenUIForm("test"+mUIName, "DefaultGroup", this);
+            mUIId = UI.OpenUIForm(mUIName, "DefaultGroup", this);
         }
 
 

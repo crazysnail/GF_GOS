@@ -67,7 +67,15 @@ public class LoginUICanvas : UIFormLogic
 
     public void OnEnterClick()
     {
-
+        ProcedureComponent procedureComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<ProcedureComponent>();
+        if (procedureComponent != null)
+        {
+            GameFrameworkGOS.ProcedureLogin p = procedureComponent.CurrentProcedure as GameFrameworkGOS.ProcedureLogin;
+            if (p != null)
+            {
+                p.OnChange();
+            }
+        }
     }
 
     public void OnRegistClick()
