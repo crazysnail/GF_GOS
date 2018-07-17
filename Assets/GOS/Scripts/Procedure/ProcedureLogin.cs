@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 
 namespace GameFrameworkGOS
 {
-    public class ProcedureLoad : ProcedureBase
+    public class ProcedureLogin : ProcedureBase
     {
-        private const string mUIName = "Assets/GOS/Prefabs/UI/LoadUICanvas.prefab";
+        private const string mUIName = "Assets/GOS/Prefabs/UI/LoginUICanvas.prefab";
         private const string mSceneName = "LoginScene";
 
         // 加载框架Event组件
@@ -47,31 +47,31 @@ namespace GameFrameworkGOS
             Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
             Event.Subscribe(OpenUIFormFailureEventArgs.EventId, OnOpenUIFormFailure);
 
+
             UILoadTest();
 
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
-            base.OnLeave(procedureOwner,isShutdown);
+            base.OnLeave(procedureOwner, isShutdown);
 
             UIComponent UI = UnityGameFramework.Runtime.GameEntry.GetComponent<UIComponent>();
             UI.CloseUIForm(mUIId);
-
 
             //取消订阅成功事件
             Event.Unsubscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
             Event.Unsubscribe(OpenUIFormFailureEventArgs.EventId, OnOpenUIFormFailure);
 
             //卸载场景
-           // SceneComponent sceneComp = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
-            //sceneComp.UnloadScene(mSceneName);
+            SceneComponent sceneComp = UnityGameFramework.Runtime.GameEntry.GetComponent<SceneComponent>();
+            sceneComp.UnloadScene(mSceneName);
 
         }
 
-        public void OnChange( )
+        public void OnChange()
         {
-            ChangeState<ProcedureLogin>(mProcedureOwner);
+            ChangeState<ProcedureGame>(mProcedureOwner);
         }
 
      
@@ -82,6 +82,7 @@ namespace GameFrameworkGOS
         private void UILoadTest()
         {
             UIComponent UI = UnityGameFramework.Runtime.GameEntry.GetComponent<UIComponent>();
+            // 加载UI
             mUIId = UI.OpenUIForm(mUIName, "DefaultGroup", this);
         }
 
@@ -98,7 +99,7 @@ namespace GameFrameworkGOS
                 if (UI != null){
                     UIForm form = UI.GetUIForm(mUIName);
                     if (form != null){
-                        LoadUICanvas panel = (LoadUICanvas)(form.Logic);
+                        LoginUICanvas panel = (LoginUICanvas)(form.Logic);
                         if (panel != null){
                             //panel.OnEnableMask(true);
                             //panel.OnEnableActor(true);

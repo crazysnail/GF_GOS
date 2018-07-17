@@ -1,17 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GOS\Scripts\UI\LoadUICanvas.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GOS/Scripts/UI/LoadUICanvas.cs">
     <Files>
-      <File FileName="Assets\Spine\Spine Examples\Scripts\Mix and Match Character Customize\EquipButtonExample.cs" Line="1" Column="1" />
-      <File FileName="Assets\GOS\Scripts\UI\LoadUICanvas.cs" Line="132" Column="84" />
+      <File FileName="Assets/GOS/Scripts/Procedure/ProcedureLaunch.cs" Line="1" Column="1" />
+      <File FileName="Assets/GOS/Scripts/UI/LoadUICanvas.cs" Line="204" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="D:\work\gos_client\Assets\GOS\Scripts\UI\LoadUICanvas.cs" line="97" column="1" />
-      <Breakpoint file="D:\work\gos_client\Assets\GOS\Scripts\UI\LoadUICanvas.cs" line="104" column="1" />
-      <Breakpoint file="D:\work\gos_client\Assets\GOS\Scripts\UI\LoadUICanvas.cs" line="113" column="1" />
-      <Breakpoint file="D:\work\gos_client\Assets\GOS\Scripts\UI\LoadUICanvas.cs" line="132" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="131" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="182" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="190" column="1" />
+      <Breakpoint file="/Users/admin/work/gos_client/Assets/GOS/Scripts/UI/LoadUICanvas.cs" line="211" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
