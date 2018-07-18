@@ -3,8 +3,6 @@ using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 using GameFramework.Event;
-using GameFramework.Scene;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace GameFrameworkGOS
