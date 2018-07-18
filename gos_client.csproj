@@ -13,12 +13,14 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.6f2</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -129,6 +131,7 @@
     <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureGame.cs" />
     <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLaunch.cs" />
     <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLoad.cs" />
+    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLogin.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingIcon.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingPlace.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\BuildingTree.cs" />
@@ -136,10 +139,14 @@
     <Compile Include="Assets\GOS\Scripts\Towers\DefendersSpawner.cs" />
     <Compile Include="Assets\GOS\Scripts\Towers\Tower.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\ButtonHandler.cs" />
+    <Compile Include="Assets\GOS\Scripts\UI\GameUICanvas.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\LoadUICanvas.cs" />
+    <Compile Include="Assets\GOS\Scripts\UI\LoginUICanvas.cs" />
+    <Compile Include="Assets\GOS\Scripts\UI\MyWalletUICanvas.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\ShowInfo.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\TestUICanvas.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\UiManager.cs" />
+    <Compile Include="Assets\GOS\Scripts\UI\UserInfoUICanvas.cs" />
     <Compile Include="Assets\GOS\Scripts\UI\WavesTimer.cs" />
     <Compile Include="Assets\GOS\Scripts\UserActions\Spells\AirStrike.cs" />
     <Compile Include="Assets\GOS\Scripts\UserActions\UserActionIcon.cs" />
@@ -504,14 +511,13 @@
     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\SkeletonUtilityBone.cs" />
     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\SkeletonUtilityConstraint.cs" />
     <Compile Include="Assets\Spine\spine-unity\SpineAttributes.cs" />
-    <Compile Include="Assets\GOS\Scripts\Procedure\ProcedureLogin.cs" />
-    <Compile Include="Assets\GOS\Scripts\UI\LoginUICanvas.cs" />
-    <Compile Include="Assets\GOS\Scripts\UI\GameUICanvas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GOS\Configs\Hero.txt" />
     <None Include="Assets\GameFramework\GF_Example\Demo5\Hero.txt" />
-    <None Include="Assets\GameFramework\Libraries\GameFramework.xml" />
+    <None Include="Assets\GameFramework\Libraries\GameFramework.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Assets\GameFramework\Libraries\link.xml" />
     <None Include="Assets\Spine\Spine Examples\Spine\Dragon\dragon.atlas.txt" />
     <None Include="Assets\Spine\Spine Examples\Spine\Dragon\license.txt" />
