@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio for Mac
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gos_client", "gos_client.csproj", "{3290A1F8-9A4A-4ED9-AEF9-9A0A8F9B901C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gos_client.Editor", "gos_client.Editor.csproj", "{1078F191-4E11-22D6-F2B7-E36AB42B5881}"

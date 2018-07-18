@@ -58,6 +58,24 @@ public class GameUICanvas : UIFormLogic
 
     }
 
+    public void OnUserInfoClick()
+    {
+        // 加载框架UI组件
+        UIComponent UI
+            = UnityGameFramework.Runtime.GameEntry.GetComponent<UIComponent>();
+        //关闭大厅ui
+        UIForm hallUI = UI.GetUIForm("Assets/GOS/Prefabs/UI/GameUICanvas.prefab");
+        if(hallUI != null)
+        {
+            UI.CloseUIForm(hallUI);
+        }
+        
+        // 加载UI
+        UI.OpenUIForm("Assets/GOS/Prefabs/UI/UserInfoUICanvas.prefab", "DefaultGroup");
+
+       // UI.OpenUIForm("Assets/Demo3/LoadUICanvas.prefab", "DefaultGroup");
+    }
+
 
 
     public void OnLogoutClick()
